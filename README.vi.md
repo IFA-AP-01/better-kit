@@ -9,6 +9,15 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/IFA-AP-01/better-kit/releases/latest"><img src="https://img.shields.io/github/v/release/IFA-AP-01/better-kit?style=flat-square&label=release&color=3b8cff" alt="Latest release"></a>
+  <a href="https://github.com/IFA-AP-01/better-kit/releases"><img src="https://img.shields.io/github/downloads/IFA-AP-01/better-kit/total?style=flat-square&color=3b8cff" alt="Downloads"></a>
+  <img src="https://img.shields.io/badge/macOS-14%2B-24292f?style=flat-square&logo=apple&logoColor=white" alt="macOS 14 or later">
+  <img src="https://img.shields.io/badge/Apple%20Silicon-arm64-24292f?style=flat-square" alt="Apple Silicon">
+  <img src="https://img.shields.io/badge/Swift-SwiftUI-F05138?style=flat-square&logo=swift&logoColor=white" alt="Swift and SwiftUI">
+  <img src="https://img.shields.io/badge/Notarized-Developer%20ID-2ea44f?style=flat-square" alt="Notarized with Developer ID">
+</p>
+
+<p align="center">
   <a href="README.md">English</a> · <strong>Tiếng Việt</strong>
 </p>
 
