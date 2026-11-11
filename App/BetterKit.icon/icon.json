@@ -1,0 +1,90 @@
+{
+  "fill": {
+    "linear-gradient": [
+      "extended-gray:0.22000,1.00000",
+      "extended-gray:0.04000,1.00000"
+    ],
+    "orientation": {
+      "start": {
+        "x": 0.5,
+        "y": 0
+      },
+      "stop": {
+        "x": 0.5,
+        "y": 0.7
+      }
+    }
+  },
+  "groups": [
+    {
+      "layers": [
+        {
+          "fill": "automatic",
+          "glass": true,
+          "image-name": "scroll.svg",
+          "name": "scroll",
+          "position": {
+            "scale": 1.0,
+            "translation-in-points": [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "fill": "automatic",
+          "glass": true,
+          "image-name": "display.svg",
+          "name": "display",
+          "position": {
+            "scale": 1.0,
+            "translation-in-points": [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "fill": "automatic",
+          "glass": true,
+          "image-name": "typing.svg",
+          "name": "typing",
+          "position": {
+            "scale": 1.0,
+            "translation-in-points": [
+              0,
+              0
+            ]
+          }
+        },
+        {
+          "fill": "automatic",
+          "glass": true,
+          "image-name": "fan.svg",
+          "name": "fan",
+          "position": {
+            "scale": 1.0,
+            "translation-in-points": [
+              0,
+              0
+            ]
+          }
+        }
+      ],
+      "shadow": {
+        "kind": "layer-color",
+        "opacity": 0.5
+      },
+      "translucency": {
+        "enabled": true,
+        "value": 0.4
+      },
+      "specular": true
+    }
+  ],
+  "supported-platforms": {
+    "squares": [
+      "macOS"
+    ]
+  }
+}

@@ -1,0 +1,129 @@
+name: BetterKit
+options:
+  bundleIdPrefix: dev.ifateam.betterkit
+  deploymentTarget:
+    macOS: "14.0"
+  createIntermediateGroups: true
+# Team, feed URL and Sparkle key come from the gitignored Config/Environment.xcconfig.
+configFiles:
+  Debug: Config/BetterKit.xcconfig
+  Release: Config/BetterKit.xcconfig
+packages:
+  Sparkle:
+    url: https://github.com/sparkle-project/Sparkle
+    exactVersion: 2.9.6
+settings:
+  base:
+    CODE_SIGN_IDENTITY: "-"
+    CODE_SIGN_STYLE: Manual
+    DEVELOPMENT_TEAM: ""
+    ENABLE_USER_SCRIPT_SANDBOXING: NO
+    CLANG_ENABLE_OBJC_ARC: YES
+    ARCHS: arm64
+    ONLY_ACTIVE_ARCH: YES
+targets:
+  BetterKit:
+    type: application
+    platform: macOS
+    sources:
+      - path: App
+        excludes:
+          - BetterKit.icon
+      - path: App/BetterKit.icon
+        type: file
+        buildPhase: resources
+      - path: Shared
+        excludes:
+          - "*.h"
+      - path: Shared
+        includes:
+          - "*.h"
+        buildPhase: none
+      - path: RELEASE_NOTES.md
+        buildPhase: resources
+      - path: Helper/dev.ifateam.betterkit.helper.plist
+        buildPhase:
+          copyFiles:
+            destination: wrapper
+            subpath: Contents/Library/LaunchDaemons
+    dependencies:
+      - target: BetterKitHelper
+        embed: true
+        codeSign: true
+        copy:
+          destination: executables
+      - package: Sparkle
+    preBuildScripts:
+      - name: Build uvie engine
+        script: '"$SRCROOT/scripts/build-uvie.sh"'
+        basedOnDependencyAnalysis: false
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: dev.ifateam.betterkit
+        PRODUCT_NAME: BetterKit
+        ASSETCATALOG_COMPILER_APPICON_NAME: BetterKit
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_FILE: App/Info.plist
+        INFOPLIST_KEY_CFBundleDisplayName: BetterKit
+        INFOPLIST_KEY_LSUIElement: YES
+        INFOPLIST_KEY_LSApplicationCategoryType: public.app-category.utilities
+        INFOPLIST_KEY_NSHumanReadableCopyright: "© 2026 ifateam"
+        MARKETING_VERSION: "0.1.0"
+        CURRENT_PROJECT_VERSION: "3"
+        SWIFT_VERSION: "5.0"
+        SWIFT_OBJC_BRIDGING_HEADER: Shared/BetterKit-Bridging-Header.h
+        HEADER_SEARCH_PATHS: $(SRCROOT)/Shared
+        OTHER_LDFLAGS: $(SRCROOT)/Vendor/lib/libuvie.a
+        ENABLE_APP_SANDBOX: NO
+        ENABLE_HARDENED_RUNTIME: YES
+        CODE_SIGN_ENTITLEMENTS: App/BetterKit.entitlements
+        DEVELOPMENT_TEAM: $(BETTERKIT_DEVELOPMENT_TEAM)
+        PROVISIONING_PROFILE_SPECIFIER: ""
+        COMBINE_HIDPI_IMAGES: YES
+        DEAD_CODE_STRIPPING: YES
+      configs:
+        Debug:
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: Developer ID Application
+        Release:
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: Developer ID Application
+  BetterKitHelper:
+    type: tool
+    platform: macOS
+    sources:
+      - Helper/main.swift
+      - Shared/SMC.swift
+      - Shared/FanHelperProtocol.swift
+      - Shared/CodeSigning.swift
+      - path: Shared/smc.c
+      - path: Shared
+        includes:
+          - "*.h"
+        buildPhase: none
+    settings:
+      base:
+        PRODUCT_NAME: BetterKitHelper
+        PRODUCT_BUNDLE_IDENTIFIER: dev.ifateam.betterkit.helper
+        SWIFT_VERSION: "5.0"
+        SWIFT_OBJC_BRIDGING_HEADER: Shared/Helper-Bridging-Header.h
+        HEADER_SEARCH_PATHS: $(SRCROOT)/Shared
+        ENABLE_HARDENED_RUNTIME: YES
+        DEVELOPMENT_TEAM: $(BETTERKIT_DEVELOPMENT_TEAM)
+        PROVISIONING_PROFILE_SPECIFIER: ""
+        SKIP_INSTALL: YES
+        GENERATE_INFOPLIST_FILE: YES
+        CREATE_INFOPLIST_SECTION_IN_BINARY: YES
+        OTHER_CODE_SIGN_FLAGS: "--identifier dev.ifateam.betterkit.helper"
+      configs:
+        Debug:
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: Developer ID Application
+        Release:
+          CODE_SIGN_STYLE: Manual
+          CODE_SIGN_IDENTITY: Developer ID Application
+schemes:
+  BetterKit:
+    build:
+      targets:
+        BetterKit: all

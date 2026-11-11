@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="-apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Segoe UI', Helvetica, Arial, sans-serif">
+<defs>
+<linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#252a31"/><stop offset="1" stop-color="#1b1e23"/></linearGradient>
+<radialGradient id="glow" cx="0.12" cy="0" r="0.8"><stop offset="0" stop-color="#ff9f0a" stop-opacity="0.16"/><stop offset="1" stop-color="#ff9f0a" stop-opacity="0"/></radialGradient>
+<filter id="grain" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="4"/><feColorMatrix values="0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 0.05 0"/><feComposite in2="SourceGraphic" operator="in"/></filter>
+<clipPath id="c"><rect width="1200" height="560" rx="28"/></clipPath>
+</defs>
+<g clip-path="url(#c)">
+<rect width="1200" height="560" fill="url(#bg)"/>
+<rect width="1200" height="560" fill="url(#glow)"/>
+<rect width="1200" height="560" fill="#fff" filter="url(#grain)"/>
+</g>
+<rect x="0.5" y="0.5" width="1199" height="559" rx="28" fill="none" stroke="#ffffff" stroke-opacity="0.08"/>
+<rect x="64" y="58" width="10" height="34" rx="5" fill="#ff9f0a"/>
+<text x="92" y="86" font-size="32" font-weight="600" fill="#f2f4f7">Fan control</text>
+<text x="64" y="128" font-size="19" fill="#a7afba">Live fan speed and temperature sensors, with a constant speed or a sensor-based curve.</text>
+
+<defs><linearGradient id="fa" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ff9f0a" stop-opacity="0.28"/><stop offset="1" stop-color="#ff9f0a" stop-opacity="0"/></linearGradient></defs>
+<g stroke="#ffffff" stroke-opacity="0.08"><line x1="120" x2="740" y1="470" y2="470"/><line x1="120" x2="740" y1="401" y2="401"/><line x1="120" x2="740" y1="332" y2="332"/><line x1="120" x2="740" y1="262" y2="262"/><line x1="120" x2="740" y1="200" y2="200"/></g>
+<line x1="120" y1="190" x2="120" y2="470" stroke="#5b6370" stroke-width="2"/><line x1="120" y1="470" x2="745" y2="470" stroke="#5b6370" stroke-width="2"/>
+<path d="M120 470 L306 470 L430 415 L554 311 L678 200 L740 200 L740 470 L120 470 Z" fill="url(#fa)"/><path d="M120 470 L306 470 L430 415 L554 311 L678 200 L740 200" fill="none" stroke="#ff9f0a" stroke-width="4" stroke-linejoin="round"/>
+<circle cx="306" cy="470" r="8" fill="#1b1e23" stroke="#ff9f0a" stroke-width="3"/><circle cx="430" cy="415" r="8" fill="#1b1e23" stroke="#ff9f0a" stroke-width="3"/><circle cx="554" cy="311" r="8" fill="#1b1e23" stroke="#ff9f0a" stroke-width="3"/><circle cx="678" cy="200" r="8" fill="#1b1e23" stroke="#ff9f0a" stroke-width="3"/>
+<g font-size="15" fill="#7d8592"><text x="120" y="496" text-anchor="middle">40 °C</text><text x="244" y="496" text-anchor="middle">50 °C</text><text x="368" y="496" text-anchor="middle">60 °C</text><text x="492" y="496" text-anchor="middle">70 °C</text><text x="616" y="496" text-anchor="middle">80 °C</text><text x="740" y="496" text-anchor="middle">90 °C</text>
+<text x="108" y="475" text-anchor="end">1000</text><text x="108" y="337" text-anchor="end">3000</text><text x="108" y="205" text-anchor="end">4900</text></g>
+<text x="120" y="176" font-size="15" fill="#7d8592">rpm</text>
+<rect x="830" y="196" width="306" height="54" rx="14" fill="#2d323a" fill-opacity="1" stroke="#ffffff" stroke-opacity="0.08"/><text x="854" y="230" font-size="19" fill="#c9ced6">Automatic</text><rect x="830" y="268" width="306" height="54" rx="14" fill="#2d323a" fill-opacity="1" stroke="#ffffff" stroke-opacity="0.08"/><text x="854" y="302" font-size="19" fill="#c9ced6">Constant speed</text><rect x="830" y="340" width="306" height="54" rx="14" fill="#ff9f0a" fill-opacity="0.18" stroke="#ff9f0a" stroke-opacity="0.9"/><text x="854" y="374" font-size="19" fill="#ffd9a0">Sensor-based curve</text>
+<text x="830" y="440" font-size="16" fill="#a7afba">Returns to automatic when</text><text x="830" y="464" font-size="16" fill="#a7afba">BetterKit quits or crashes.</text>
+</svg>

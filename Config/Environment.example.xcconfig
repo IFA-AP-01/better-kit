@@ -1,0 +1,16 @@
+// Copy to Config/Environment.xcconfig (gitignored) and fill in.
+// `https:/$()/` keeps xcconfig from reading `//` as a comment.
+
+// Apple Developer team ID used to sign the app and the fan helper.
+BETTERKIT_DEVELOPMENT_TEAM = YOUR_TEAM_ID
+
+// Sparkle feed. Leave empty to build without the updater.
+BETTERKIT_UPDATE_BASE_URL = https:/$()/updates.example.com/betterkit
+BETTERKIT_SU_FEED_URL = $(BETTERKIT_UPDATE_BASE_URL)/appcast.xml
+// Printed by `generate_keys --account betterkit`; the private key stays in the login Keychain.
+BETTERKIT_SU_PUBLIC_ED_KEY = YOUR_ED25519_PUBLIC_KEY
+
+// App Store Connect API key used by scripts/release.sh for notarization.
+BETTERKIT_NOTARY_ISSUER_ID = YOUR_ISSUER_ID
+BETTERKIT_NOTARY_KEY_ID = YOUR_KEY_ID
+BETTERKIT_NOTARY_KEY_PATH = Config/AuthKey_YOUR_KEY_ID.p8
